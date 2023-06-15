@@ -188,6 +188,28 @@
             }
           }
         },
+        "mysqlMetrics": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "enabled": {
+              "description": "Specifies whether the collector should collect MySQL metrics.",
+              "type": "boolean"
+            },
+            "username": {
+              "description": "Specifies the MySQL user for metrics collection.",
+              "type": "string"
+            },
+            "password": {
+              "description": "Specifies the MySQL password for metrics collection.",
+              "type": "string"
+            },
+            "port": {
+              "description": "Specifies the MySQL port for metrics collection.",
+              "type": "integer"
+            }
+          }
+        },
         "hostMetrics": {
           "type": "object",
           "additionalProperties": false,

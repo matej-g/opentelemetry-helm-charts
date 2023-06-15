@@ -110,6 +110,12 @@ presets:
   # Best used with mode = daemonset.
   kubeletMetrics:
     enabled: false
+  # Configures the collector to collect MySQL metrics .
+  mysqlMetrics:
+    enabled: false
+    username: "root"
+    password: ${env:MYSQL_PASSWORD}
+    port: 3306
 
 configMap:
   # Specifies whether a configMap should be created (true by default)
