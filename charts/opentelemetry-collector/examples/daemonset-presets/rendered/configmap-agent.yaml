@@ -151,7 +151,8 @@ data:
                 limit: 250
                 time_limit: 24h
               username: root
-            rule: type == "port" && port == 3306
+            rule: type == "port" && port == 3306 && pod.labels["env"] == "test" && pod.labels["team"]
+              == "teamA"
         watch_observers:
         - k8s_observer
       zipkin:

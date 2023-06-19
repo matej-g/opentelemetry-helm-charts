@@ -113,9 +113,13 @@ presets:
   # Configures the collector to collect MySQL metrics .
   mysqlMetrics:
     enabled: false
-    username: "root"
-    password: ${env:MYSQL_PASSWORD}
-    port: 3306
+    instances:
+    - labelSelectors:
+          # app.kubernetes.io/name: "mysql"
+          # app.kubernetes.io/instance: "mysql-logs"
+      username: "root"
+      password: ${env:MYSQL_PASSWORD}
+      port: 3306
 
 configMap:
   # Specifies whether a configMap should be created (true by default)

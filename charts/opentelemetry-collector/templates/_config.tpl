@@ -311,6 +311,8 @@ receivers:
 {{- end }}
 
 {{- define "opentelemetry-collector.mysqlConfig" -}}
+{{- $instances := deepCopy .Values.presets.mysqlMetrics.instances }}
+{{- range $key, $instance := $instances }}
 extensions:
   k8s_observer:
     auth_type: serviceAccount
@@ -321,15 +323,16 @@ receivers:
     watch_observers: [k8s_observer]
     receivers:
       mysql:
-        rule: type == "port" && port == {{ .Values.presets.mysqlMetrics.port }}
+        rule: type == "port" && port == {{ $instance.port }} {{- range $name, $value := $instance.labelSelectors }} && pod.labels["{{ $name }}"] == "{{ $value }}" {{- end }}
         config:
-          username: {{ .Values.presets.mysqlMetrics.username }}
-          password: {{ .Values.presets.mysqlMetrics.password }}
+          username: {{ $instance.username }}
+          password: {{ $instance.password }}
           collection_interval: 10s
           statement_events:
             digest_text_limit: 120
             time_limit: 24h
             limit: 250
+{{- end }}
 {{- end }}
 
 {{- define "opentelemetry-collector.applyKubernetesAttributesConfig" -}}
