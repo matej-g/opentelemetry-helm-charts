@@ -5,6 +5,9 @@
 nameOverride: ""
 fullnameOverride: ""
 
+generateCRD: false
+updateStrategy: ""
+
 # Valid values are "daemonset", "deployment", and "statefulset".
 mode: ""
 

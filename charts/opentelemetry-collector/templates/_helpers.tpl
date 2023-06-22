@@ -137,7 +137,7 @@ Compute Service creation on mode
 {{- define "opentelemetry-collector.serviceEnabled" }}
   {{- $serviceEnabled := true -}}
 
-  {{- if and (eq .Values.mode "daemonset") (not .Values.service.enabled) }}
+  {{- if or (and (eq .Values.mode "daemonset") (not .Values.service.enabled)) (.Values.generateCRD) }}
     {{- $serviceEnabled = false -}}
   {{- end }}
 

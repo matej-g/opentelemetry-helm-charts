@@ -35,6 +35,13 @@
       "type": "string",
       "enum": ["daemonset", "deployment", "statefulset", ""]
     },
+    "generateCRD": {
+      "type":"boolean"
+    },
+    "updateStrategy": {
+      "type": "string",
+      "enum": ["automatic", "none", ""]
+    },
     "presets": {
       "type": "object",
       "additionalProperties": false,
