@@ -1,4 +1,4 @@
-{{- if not .Values.generateCRD -}}
+{{- if not .Values.collectorCRD.generate -}}
 {{- if eq .Values.mode "statefulset" -}}
 apiVersion: apps/v1
 kind: StatefulSet

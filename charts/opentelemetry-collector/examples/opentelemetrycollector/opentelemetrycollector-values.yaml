@@ -1,5 +1,10 @@
 mode: statefulset
-generateCRD: true
+collectorCRD:
+  generate: true
+  targetAllocator:
+    enabled: true
+    prometheusCR:
+      enabled: true
 
 presets:
   logsCollection:

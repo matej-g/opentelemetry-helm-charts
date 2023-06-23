@@ -5,8 +5,30 @@
 nameOverride: ""
 fullnameOverride: ""
 
-generateCRD: false
-updateStrategy: ""
+collectorCRD: 
+  generate: false
+  updateStrategy: ""
+  resources: {}
+  targetAllocator:
+    enabled: false
+    prometheusCR:
+      enabled: false
+      podMonitorSelector: {}
+      serviceMonitorSelector: {}
+    allocationStrategy: ""
+    filterStrategy: ""
+    image:
+      # Defaults to repository set by the operator.
+      repository: ""
+      # Overrides the image tag, whose default is set by the operator.
+      tag: ""
+      # When digest is set to a non-empty value, images will be pulled by digest (regardless of tag value).
+      digest: ""
+    # Name of the service account to be used by the target allocator.  
+    serviceAccount: ""
+    resources: {}
+      # clusterRole and CRB creation?
+
 
 # Valid values are "daemonset", "deployment", and "statefulset".
 mode: ""

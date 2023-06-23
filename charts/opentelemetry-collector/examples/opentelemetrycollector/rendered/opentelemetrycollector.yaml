@@ -5,18 +5,22 @@ kind: OpenTelemetryCollector
 metadata:
   name: example-opentelemetry-collector
   labels:
-    helm.sh/chart: opentelemetry-collector-0.59.1
+    helm.sh/chart: opentelemetry-collector-0.61.0
     app.kubernetes.io/name: opentelemetry-collector
     app.kubernetes.io/instance: example
-    app.kubernetes.io/version: "0.78.0"
+    app.kubernetes.io/version: "0.77.0"
     app.kubernetes.io/managed-by: Helm
 spec:
   mode: statefulset
+  targetAllocator:
+    enabled: true
+    prometheusCR:
+      enabled: true
         
   podSecurityContext:
     runAsUser: 0
     runAsGroup: 0
-  image: "otel/opentelemetry-collector-contrib:0.78.0"
+  image: "otel/opentelemetry-collector-contrib:0.77.0"
   imagePullPolicy: IfNotPresent
   ports:
     - name: jaeger-compact
