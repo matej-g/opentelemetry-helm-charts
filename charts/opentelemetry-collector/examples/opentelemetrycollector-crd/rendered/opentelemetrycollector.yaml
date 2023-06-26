@@ -16,6 +16,8 @@ spec:
     enabled: true
     prometheusCR:
       enabled: true
+    serviceAccount: default-targetallocator
+    image: "ghcr.io/open-telemetry/opentelemetry-operator/target-allocator:0.77.0"
         
   podSecurityContext:
     runAsUser: 0

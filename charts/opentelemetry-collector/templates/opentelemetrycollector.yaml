@@ -39,13 +39,13 @@ spec:
     {{- end }}
     {{- if .Values.collectorCRD.serviceAccount }}
     serviceAccount: {{ .Values.collectorCRD.serviceAccount | quote }}
+    {{- else }}
+    serviceAccount: {{ include "opentelemetry-collector.serviceAccountName" . }}-targetallocator
     {{- end }}
-    {{- if .Values.collectorCRD.image }}
-    {{- if .Values.collectorCRD.image.digest }}
-    image: "{{ .Values.collectorCRD.image.repository }}@{{ .Values.collectorCRD.image.digest }}"
-    {{- else if .Values.collectorCRD.image.repository}}
-    image: "{{ .Values.collectorCRD.image.repository }}:{{ .Values.collectorCRD.image.tag | default .Chart.AppVersion }}"
-    {{- end }}
+    {{- if .Values.collectorCRD.targetAllocator.image.tag }}
+    image: "{{ .Values.collectorCRD.targetAllocator.image.repository }}:{{ .Values.collectorCRD.targetAllocator.image.tag | default .Chart.AppVersion }}"
+    {{- else if .Values.collectorCRD.targetAllocator.image.digest}}
+    image: "{{ .Values.collectorCRD.targetAllocator.image.repository }}@{{ .Values.collectorCRD.targetAllocator.image.digest }}"
     {{- end }}
     {{- with .Values.collectorCRD.resources }}
     resources:
