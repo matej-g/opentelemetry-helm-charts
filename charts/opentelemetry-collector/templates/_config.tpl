@@ -37,7 +37,7 @@ Build config file for daemonset OpenTelemetry Collector
 {{- if eq (include "opentelemetry-collector.logsCollectionEnabled" .) "true" }}
 {{- $config = (include "opentelemetry-collector.applyLogsCollectionConfig" (dict "Values" $data "config" $config) | fromYaml) }}
 {{- end }}
-{{- if .Values.presets.mysqlMetrics.enabled }}
+{{- if .Values.presets.mysql.metrics.enabled }}
 {{- $config = (include "opentelemetry-collector.applyMysqlConfig" (dict "Values" $data "config" $config) | fromYaml) }}
 {{- end }}
 {{- if .Values.presets.hostMetrics.enabled }}
@@ -65,7 +65,7 @@ Build config file for deployment OpenTelemetry Collector
 {{- if eq (include "opentelemetry-collector.logsCollectionEnabled" .) "true" }}
 {{- $config = (include "opentelemetry-collector.applyLogsCollectionConfig" (dict "Values" $data "config" $config) | fromYaml) }}
 {{- end }}
-{{- if .Values.presets.mysqlMetrics.enabled }}
+{{- if .Values.presets.mysql.metrics.enabled }}
 {{- $config = (include "opentelemetry-collector.applyMysqlConfig" (dict "Values" $data "config" $config) | fromYaml) }}
 {{- end }}
 {{- if .Values.presets.hostMetrics.enabled }}
@@ -311,7 +311,7 @@ receivers:
 {{- end }}
 
 {{- define "opentelemetry-collector.mysqlConfig" -}}
-{{- $instances := deepCopy .Values.presets.mysqlMetrics.instances }}
+{{- $instances := deepCopy .Values.presets.mysql.metrics.instances }}
 {{- range $key, $instance := $instances }}
 extensions:
   k8s_observer:
