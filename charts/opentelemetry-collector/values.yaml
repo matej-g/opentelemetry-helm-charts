@@ -126,6 +126,8 @@ presets:
         port: 3306
     # extraLogs enables collection of MySQL log files that are not out put to stdin / stderr. These include
     # for example general or slow query logs.
+    # This configuration option is valid ONLY with the OpenTelemetry Operator, when collectorCRD.generate = true.
+    # Otherwise enabling extra logs has no effect.
     extraLogs:
       enabled: false
       # volumeMountName specifies the name of the volume mount. It should correspond to the volume name of the MySQL data volume.
