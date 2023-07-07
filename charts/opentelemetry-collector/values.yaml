@@ -112,7 +112,7 @@ presets:
     enabled: false
   # Configures the collector to collect MySQL metrics .
   mysql:
-    #metrics enables collection of MySQL metrics.
+    # metrics enables collection of MySQL metrics.
     metrics:
       enabled: false
       # If you have multiple instance you'd like to collect, specify each instance in the list below.
@@ -136,7 +136,7 @@ presets:
       # logFilesPath specifies which directory to watch for log files. This will typically be the MySQL data directory,
       # such as /var/lib/mysql. If not specified, the value of mountPath will be used.
       logFilesPath: ""
-      #logFilesExtension specifies the file extension of the log files to watch. This will normally be .log.
+      # logFilesExtension specifies the file extension of the log files to watch. This will normally be .log.
       logFilesExtension: ".log"
 
 configMap:
