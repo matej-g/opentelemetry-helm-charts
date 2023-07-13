@@ -323,7 +323,7 @@ receivers:
     watch_observers: [k8s_observer]
     receivers:
       mysql:
-        rule: type == "port" && port == {{ $instance.port }} {{- range $name, $value := $instance.labelSelectors }} && pod.labels["{{ $name }}"] == "{{ $value }}" {{- end }}
+        rule: type == "port" && port == {{ $instance.port | default 3306 }} {{- range $name, $value := $instance.labelSelectors }} && pod.labels["{{ $name }}"] == "{{ $value }}" {{- end }}
         config:
           username: {{ $instance.username }}
           password: {{ $instance.password }}

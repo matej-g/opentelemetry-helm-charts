@@ -132,7 +132,7 @@ presets:
       enabled: false
       # volumeMountName specifies the name of the volume mount. It should correspond to the volume name of the MySQL data volume.
       volumeMountName: "data"
-      # mountPath specifies the path at which to mount the volumet. This should correspond the mount path of your MySQL data volume.
+      # mountPath specifies the path at which to mount the volume. This should correspond the mount path of your MySQL data volume.
       # Provide this parameter without trailing slash.
       mountPath: "/var/lib/mysql"
       # logFilesPath specifies which directory to watch for log files. This will typically be the MySQL data directory,
