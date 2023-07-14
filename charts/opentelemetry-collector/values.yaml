@@ -118,7 +118,7 @@ presets:
       # If you have multiple instance you'd like to collect, specify each instance in the list below.
       # If you have only one instance, you don't need to specify the labelSelectors.
       instances:
-      - labelSelectors:
+      - # labelSelectors:
             # app.kubernetes.io/name: "mysql"
             # app.kubernetes.io/instance: "mysql-logs"
         username: "root"
