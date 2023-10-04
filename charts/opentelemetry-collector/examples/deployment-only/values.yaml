@@ -7,3 +7,27 @@ resources:
     cpu: 2
     memory: 4Gi
 
+extraEnvs:
+  TEST:
+    valueFrom:
+      secretKeyRef:
+        name: test
+        key: PRIVATE_KEY
+  TEST2:
+    value: "test"
+
+extraEnvsFrom:
+  env-configmap: configMapRef
+  env-secret: secretRef
+
+extraVolumes:
+  testpath:
+    hostPath:
+      path: /etc/test
+
+extraVolumeMounts:
+   testpath:   
+      mountPath: /etc/test
+      mountPropagation: HostToContainer
+      readOnly: true
+

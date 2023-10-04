@@ -14,11 +14,11 @@ initContainers:
         mountPath: /test
 
 extraVolumes:
-  - name: test
+  test:
     emptyDir: {}
 
 extraVolumeMounts:
-  - name: test
+  test:
     mountPath: /test
 
 lifecycleHooks:

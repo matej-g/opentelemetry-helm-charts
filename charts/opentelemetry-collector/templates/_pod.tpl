@@ -58,10 +58,12 @@ containers:
       - name: {{ $key }}
         {{- toYaml $value | nindent 8 }}
       {{- end }}
+    {{- if .Values.extraEnvsFrom }}
     envFrom:
     {{- range $key, $value := .Values.extraEnvsFrom }}
     - {{ $value }}:
         name: {{ $key }}
+    {{- end }}
     {{- end }}
     {{- if .Values.lifecycleHooks }}
     lifecycle:
