@@ -7,6 +7,31 @@ resources:
     cpu: 100m
     memory: 200M
 
+# Test the extra* parameters are build correctly
+extraEnvs:
+  TEST:
+    valueFrom:
+      secretKeyRef:
+        name: test
+        key: PRIVATE_KEY
+  TEST2:
+    value: "test"
+
+extraEnvsFrom:
+  envConfigmap: configMapRef
+  envSecret: secretRef
+
+extraVolumes:
+  testpath:
+    hostPath:
+      path: /etc/hosts
+
+extraVolumeMounts:
+   testpath:   
+      mountPath: /etc/hosts
+      mountPropagation: HostToContainer
+      readOnly: true
+
 # Tests `tpl` function reference used in pod labels and
 # ingress.hosts[*]
 podLabels:
