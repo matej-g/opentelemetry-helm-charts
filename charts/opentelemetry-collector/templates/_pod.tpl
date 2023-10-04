@@ -54,12 +54,14 @@ containers:
           fieldRef:
             fieldPath: spec.nodeName
       {{- end }}
-      {{- with .Values.extraEnvs }}
-      {{- . | toYaml | nindent 6 }}
+      {{- range $key, $value := .Values.extraEnvs }}
+      - name: {{ $key }}
+        {{- toYaml $value | nindent 8 }}
       {{- end }}
-    {{- with .Values.extraEnvsFrom }}
     envFrom:
-    {{- . | toYaml | nindent 6 }}
+    {{- range $key, $value := .Values.extraEnvsFrom }}
+    - {{ $value }}:
+        name: {{ $key }}
     {{- end }}
     {{- if .Values.lifecycleHooks }}
     lifecycle:
@@ -167,7 +169,10 @@ containers:
       {{- end }}
       {{- end }}
       {{- if .Values.extraVolumeMounts }}
-      {{- toYaml .Values.extraVolumeMounts | nindent 6 }}
+      {{- range $key, $value := .Values.extraVolumeMounts }}
+      - name: {{ $key }}
+        {{- toYaml $value | nindent 8 }}
+      {{- end }}
       {{- end }}
 {{- with .Values.extraContainers }}
 {{- toYaml . | nindent 2 }}
@@ -237,8 +242,11 @@ volumes:
       path: /
   {{- end }}
   {{- end }}
-  {{- if .Values.extraVolumes }}
-  {{- toYaml .Values.extraVolumes | nindent 2 }}
+  {{- if .Values.extraVolumes}}
+  {{- range $key, $value := .Values.extraVolumes }}
+  - name: {{ $key }}
+    {{- toYaml $value | nindent 4 }}
+  {{- end }}
   {{- end }}
 nodeSelector:
 {{- if .Values.nodeSelector }}
