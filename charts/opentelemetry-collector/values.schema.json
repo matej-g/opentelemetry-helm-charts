@@ -488,15 +488,19 @@
       }
     },
     "extraEnvs": {
-      "type": "array",
-      "items": {
-        "type": "object"
+      "type": "object",
+      "patternProperties": {
+        ".*": {
+          "type": "object"
+        }
       }
     },
     "extraEnvsFrom": {
-      "type": "array",
-      "items": {
-        "type": "object"
+      "type": "object",
+      "patternProperties": {
+        ".*": {
+          "type": "string"
+        }
       }
     },
     "extraConfigMapMounts": {
@@ -518,15 +522,19 @@
       }
     },
     "extraVolumes": {
-      "type": "array",
-      "items": {
-        "type": "object"
+      "type": "object",
+      "patternProperties": {
+        ".*": {
+          "type": "object"
+        }
       }
     },
     "extraVolumeMounts": {
-      "type": "array",
-      "items": {
-        "type": "object"
+      "type": "object",
+      "patternProperties": {
+        ".*": {
+          "type": "object"
+        }
       }
     },
     "ports": {
