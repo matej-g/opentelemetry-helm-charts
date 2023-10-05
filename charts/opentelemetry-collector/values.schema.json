@@ -488,6 +488,12 @@
       }
     },
     "extraEnvs": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "extraEnvsMap": {
       "type": "object",
       "patternProperties": {
         ".*": {
@@ -496,6 +502,12 @@
       }
     },
     "extraEnvsFrom": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "extraEnvsFromMap": {
       "type": "object",
       "patternProperties": {
         ".*": {
@@ -521,7 +533,21 @@
         "type": "object"
       }
     },
+    "extraVolumesMap": {
+      "type": "object",
+      "patternProperties": {
+        ".*": {
+          "type": "object"
+        }
+      }
+    },
     "extraVolumes": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "extraVolumeMountsMap": {
       "type": "object",
       "patternProperties": {
         ".*": {
@@ -530,11 +556,9 @@
       }
     },
     "extraVolumeMounts": {
-      "type": "object",
-      "patternProperties": {
-        ".*": {
-          "type": "object"
-        }
+      "type": "array",
+      "items": {
+        "type": "object"
       }
     },
     "ports": {

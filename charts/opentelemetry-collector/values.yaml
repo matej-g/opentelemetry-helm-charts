@@ -304,28 +304,28 @@ topologySpreadConstraints: []
 # Allows for pod scheduler prioritisation
 priorityClassName: ""
 
-# extraEnvs allows for defining extra environment variables as objects. The key should be the name of the environment variable. See the example below.
-extraEnvs: {}
+# extraEnvsMap allows for defining extra environment variables as objects. The key should be the name of the environment variable. See the example below.
+extraEnvsMap: {}
 #   ENV_VAR_NAME:
 #    valueFrom:
 #      secretKeyRef:
 #        name: exampleSecret
 #        key: exampleKey
 
-# extraEnvs allows for defining extra envFrom parameters as objects. The key should be the name of the referenced object and the value should correspond
+# extraEnvsFromMap allows for defining extra envFrom parameters as objects. The key should be the name of the referenced object and the value should correspond
 # to the type of refered object (configMapRef, secretRef). See the example below.
-extraEnvsFrom: {}
+extraEnvsFromMap: {}
 #  envConfigmap: configMapRef
 #  envSecret: secretRef
 
-# extraVolumes allows for defining extra volumes as objects. The key should be the name of the volume. See the example below.
-extraVolumes: {}
+# extraVolumesMap allows for defining extra volumes as objects. The key should be the name of the volume. See the example below.
+extraVolumesMap: {}
 #  examplePath:
 #    hostPath:
 #      path: /etc/hosts
 
-# extraVolumeMounts allows for defining extra volumeMounts as objects. The key should be the name of the volumeMount. See the example below.
-extraVolumeMounts: {}
+# extraVolumeMountsMap allows for defining extra volumeMounts as objects. The key should be the name of the volumeMount. See the example below.
+extraVolumeMountsMap: {}
 #  examplePath:
 #     mountPath: /etc/hosts
 #     mountPropagation: HostToContainer

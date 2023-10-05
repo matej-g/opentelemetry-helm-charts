@@ -8,16 +8,16 @@ resources:
     memory: 200M
 
 # Test the extra* parameters are build correctly
-extraEnvs:
+extraEnvsMap:
   TEST:
     value: "test"
 
-extraVolumes:
+extraVolumesMap:
   testpath:
     hostPath:
       path: /etc/hosts
 
-extraVolumeMounts:
+extraVolumeMountsMap:
   testpath:
     mountPath: /etc/hosts
     mountPropagation: HostToContainer

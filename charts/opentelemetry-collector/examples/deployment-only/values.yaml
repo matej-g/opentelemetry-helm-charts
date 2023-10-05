@@ -7,7 +7,7 @@ resources:
     cpu: 2
     memory: 4Gi
 
-extraEnvs:
+extraEnvsMap:
   TEST:
     valueFrom:
       secretKeyRef:
@@ -16,16 +16,16 @@ extraEnvs:
   TEST2:
     value: "test"
 
-extraEnvsFrom:
+extraEnvsFromMap:
   env-configmap: configMapRef
   env-secret: secretRef
 
-extraVolumes:
+extraVolumesMap:
   testpath:
     hostPath:
       path: /etc/test
 
-extraVolumeMounts:
+extraVolumeMountsMap:
    testpath:   
       mountPath: /etc/test
       mountPropagation: HostToContainer

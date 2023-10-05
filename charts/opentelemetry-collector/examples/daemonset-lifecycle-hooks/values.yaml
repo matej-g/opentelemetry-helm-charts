@@ -13,11 +13,11 @@ initContainers:
       - name: test
         mountPath: /test
 
-extraVolumes:
+extraVolumesMap:
   test:
     emptyDir: {}
 
-extraVolumeMounts:
+extraVolumeMountsMap:
   test:
     mountPath: /test
 
