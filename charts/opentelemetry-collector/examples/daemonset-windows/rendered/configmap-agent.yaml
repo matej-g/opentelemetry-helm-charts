@@ -26,7 +26,8 @@ data:
         spike_limit_percentage: 25
     receivers:
       filelog:
-        exclude: []
+        exclude:
+        - C:\var\log\pods\default_example-opentelemetry-collector*_*\opentelemetry-collector\*.log
         include:
         - C:\var\log\pods\*\*\*.log
         include_file_name: false
