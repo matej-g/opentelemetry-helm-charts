@@ -86,6 +86,7 @@ spec:
           volumeMounts:
             - mountPath: /conf
               name: opentelemetry-collector-configmap
+      priorityClassName: "example-opentelemetry-collector"
       volumes:
         - name: opentelemetry-collector-configmap
           configMap:
