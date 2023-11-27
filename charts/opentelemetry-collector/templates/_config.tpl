@@ -502,6 +502,9 @@ processors:
 {{- if and ($config.service.pipelines.traces) (not (has "spanmetrics" $config.service.pipelines.traces.exporters)) }}
 {{- $_ := set $config.service.pipelines.traces "exporters" (append $config.service.pipelines.traces.exporters "spanmetrics" | uniq)  }}
 {{- end }}
+{{- if and ($config.service.pipelines.traces) (not (has "transform/span_name" $config.service.pipelines.traces.processors)) }}
+{{- $_ := set $config.service.pipelines.traces "processors" (prepend $config.service.pipelines.traces.processors "transform/span_name" | uniq)  }}
+{{- end }}
 {{- if and ($config.service.pipelines.metrics) (not (has "spanmetrics" $config.service.pipelines.metrics.receivers)) }}
 {{- $_ := set $config.service.pipelines.metrics "receivers" (append $config.service.pipelines.metrics.receivers "spanmetrics" | uniq)  }}
 {{- end }}
@@ -515,7 +518,14 @@ connectors:
     dimensions:
 {{- .Values.presets.spanMetrics.extraDimensions | toYaml | nindent 10 }}
 {{- end }}
-
+{{- if .Values.presets.spanMetrics.spanNameReplacePattern }}
+processor:
+  transform/span_name:
+    trace_statements:
+      - context: span
+        statements:
+        - replace_pattern(name, "{{ .Values.presets.spanMetrics.spanNameReplacePattern.regex }}", "{{ .Values.presets.spanMetrics.spanNameReplacePattern.replacement }}")
+{{- end }}
 {{- end }}
 
 {{- define "opentelemetry-collector.kubernetesAttributesConfig" -}}
