@@ -502,7 +502,7 @@ processors:
 {{- if and ($config.service.pipelines.traces) (not (has "spanmetrics" $config.service.pipelines.traces.exporters)) }}
 {{- $_ := set $config.service.pipelines.traces "exporters" (append $config.service.pipelines.traces.exporters "spanmetrics" | uniq)  }}
 {{- end }}
-{{- if and ($config.service.pipelines.traces) (not (has "transform/span_name" $config.service.pipelines.traces.processors)) }}
+{{- if .Values.Values.presets.spanMetrics.spanNameReplacePattern}}
 {{- $_ := set $config.service.pipelines.traces "processors" (prepend $config.service.pipelines.traces.processors "transform/span_name" | uniq)  }}
 {{- end }}
 {{- if and ($config.service.pipelines.metrics) (not (has "spanmetrics" $config.service.pipelines.metrics.receivers)) }}
