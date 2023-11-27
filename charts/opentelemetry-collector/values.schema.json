@@ -352,16 +352,18 @@
             },
             "spanNameReplacePattern": {
               "description": "Configures a regex pattern to replace the span name.",
-              "type": "object",
               "additionalProperties": false,
-              "properties": {
-                "regex": {
-                  "description": "Regex pattern to match against the span name.",
-                  "type": "string"
-                },
-                "replacement": {
-                  "description": "Value to replace the span with.",
-                  "type": "string"
+              "type": "array",
+              "items": {
+                "properties": {
+                  "regex": {
+                    "description": "Regex pattern to match against the span name.",
+                    "type": "string"
+                  },
+                  "replacement": {
+                    "description": "Value to replace the span with.",
+                    "type": "string"
+                  }
                 }
               }
             }

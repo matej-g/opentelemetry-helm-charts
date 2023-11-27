@@ -524,7 +524,9 @@ processor:
     trace_statements:
       - context: span
         statements:
-        - replace_pattern(name, "{{ .Values.presets.spanMetrics.spanNameReplacePattern.regex }}", "{{ .Values.presets.spanMetrics.spanNameReplacePattern.replacement }}")
+        {{- range $index, $pattern := .Values.presets.spanMetrics.spanNameReplacePattern }}
+        - replace_pattern(name, "{{ $pattern.regex }}", "{{ $pattern.replacement }}")
+        {{- end}}
 {{- end }}
 {{- end }}
 

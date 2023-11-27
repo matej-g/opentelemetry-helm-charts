@@ -22,6 +22,6 @@ presets:
   spanMetrics:
     enabled: true
     spanNameReplacePattern:
-      regex: "^(.*)$"
+    - regex: "^(.*)$"
       replacement: "$1"
 
