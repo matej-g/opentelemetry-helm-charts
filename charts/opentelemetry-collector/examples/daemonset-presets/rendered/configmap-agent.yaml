@@ -19,7 +19,9 @@ data:
         histogram:
           explicit:
             buckets:
+            - 1ms
             - 1s
+            - 10s
     exporters:
       debug: {}
       logging: {}
