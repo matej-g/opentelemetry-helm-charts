@@ -369,6 +369,10 @@
               "description": "Specifies whether the collector should configure span metrics connector.",
               "type": "boolean"
             },
+            "collectionInterval": {
+              "description": "Specifies the interval for cluster metrics collection.",
+              "type": "string"
+            },
             "histogramBuckets": {
               "description": "Specifies the histogram buckets.",
               "type": "array"
