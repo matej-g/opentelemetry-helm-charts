@@ -21,17 +21,13 @@ data:
       pod_monitor_selector:
         {{- include "opentelemetry-target-allocator.podMonitorSelector" . | nindent 8 }}
       {{- else }}
-      pod_monitor_selector:
-        matchlabels: {}
-        matchexpressions: []
+      pod_monitor_selector: {}
       {{- end }}
       {{- if .Values.targetAllocator.prometheusCR.serviceMonitorSelector }}
       service_monitor_selector:
         {{- include "opentelemetry-target-allocator.serviceMonitorSelector" . | nindent 8 }}
       {{- else }}
-      service_monitor_selector:
-        matchlabels: {}
-        matchexpressions: []
+      service_monitor_selector: {}
       {{- end }}
     scrape_configs: []
 {{- end }}

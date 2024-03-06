@@ -25,7 +25,5 @@ data:
         matchexpressions: []
         matchlabels:
           app: example-app
-      service_monitor_selector:
-        matchlabels: {}
-        matchexpressions: []
+      service_monitor_selector: {}
     scrape_configs: []

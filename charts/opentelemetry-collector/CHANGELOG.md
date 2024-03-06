@@ -7,7 +7,7 @@
 
 ### v0.81.0 / 2024-03-06
 - [CHORE] Bump Collector to 0.96.0
-- [CHORE] Adjust target allocator config to be compatible with never version of target allocator
+- [CHORE] Adjust target allocator config to be compatible with newer version of target allocator
 
 ### v0.80.2 / 2024-03-05
 - [Fix] Ensure batch processor is always the last on in the pipeline.
