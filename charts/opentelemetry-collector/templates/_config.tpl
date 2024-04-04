@@ -679,6 +679,11 @@ connectors:
 {{- else }}
     metrics_flush_interval: 15s
 {{- end }}
+{{- if .Values.presets.spanMetrics.metricsExpiration }}
+    metrics_expiration: "{{ .Values.presets.spanMetrics.metricsExpiration }}"
+{{- else }}
+   metrics_expiration: 0
+{{- end }}
 {{- if .Values.presets.spanMetrics.spanNameReplacePattern }}
 processor:
   transform/span_name:
