@@ -54,6 +54,7 @@ data:
             - 1s
             - 2s
             - 5s
+        metrics_expiration: 5m
         metrics_flush_interval: 30s
     exporters:
       debug: {}

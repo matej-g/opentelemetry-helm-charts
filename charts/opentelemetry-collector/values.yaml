@@ -179,6 +179,7 @@ presets:
     enabled: false
     defaultHistogramBuckets: []
     # collectionInterval: 30s
+    # metricsExpiration: 5m
     configs: []
       #  - selector: route() where attributes["service.name"] == "one"
       #    histogramBuckets: []

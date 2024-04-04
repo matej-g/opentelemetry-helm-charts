@@ -742,6 +742,11 @@ connectors:
     {{- else }}
     metrics_flush_interval: 15s
     {{- end }}
+    {{- if .Values.presets.spanMetricsMulti.metricsExpiration }}
+    metrics_expiration: "{{ .Values.presets.spanMetricsMulti.metricsExpiration }}"
+    {{- else }}
+    metrics_expiration: 0
+    {{- end }}
   {{- range $index, $cfg := .Values.presets.spanMetricsMulti.configs }}
   spanmetrics/{{- $index -}}:
     histogram:
