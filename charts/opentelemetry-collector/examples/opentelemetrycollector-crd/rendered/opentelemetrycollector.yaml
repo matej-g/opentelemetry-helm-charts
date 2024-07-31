@@ -5,10 +5,14 @@ kind: OpenTelemetryCollector
 metadata:
   name: example-opentelemetry-collector
   labels:
+<<<<<<< Updated upstream
     helm.sh/chart: opentelemetry-collector-0.87.3
+=======
+    helm.sh/chart: opentelemetry-collector-0.87.4
+>>>>>>> Stashed changes
     app.kubernetes.io/name: opentelemetry-collector
     app.kubernetes.io/instance: example
-    app.kubernetes.io/version: "0.104.0"
+    app.kubernetes.io/version: "0.106.0"
     app.kubernetes.io/managed-by: Helm
     
 spec:
@@ -23,7 +27,7 @@ spec:
   podSecurityContext:
     runAsUser: 0
     runAsGroup: 0
-  image: "otel/opentelemetry-collector-contrib:0.104.0"
+  image: "otel/opentelemetry-collector-contrib:0.106.0"
   imagePullPolicy: IfNotPresent
   ports:
     - name: jaeger-compact

@@ -1,6 +1,10 @@
 apiVersion: v2
 name: opentelemetry-collector
+<<<<<<< Updated upstream
 version: 0.87.3
+=======
+version: 0.88.0
+>>>>>>> Stashed changes
 description: OpenTelemetry Collector Helm chart for Kubernetes
 type: application
 home: https://opentelemetry.io/
@@ -13,4 +17,4 @@ icon: https://opentelemetry.io/img/logos/opentelemetry-logo-nav.png
 maintainers:
   - name: povilasv
   - name: matej-g
-appVersion: 0.104.0
+appVersion: 0.106.0

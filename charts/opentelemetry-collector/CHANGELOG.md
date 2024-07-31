@@ -2,6 +2,12 @@
 
 ## OpenTelemetry Collector
 
+<<<<<<< Updated upstream
+=======
+### v0.88.0 / 2024-07-31
+- [Feat] Bump collector version to `0.106.0`
+
+>>>>>>> Stashed changes
 ### v0.87.3 / 2024-07-29
 - [Feat] add host entity event preset
 
