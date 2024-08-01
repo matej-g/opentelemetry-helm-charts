@@ -547,6 +547,24 @@
               "type": "boolean"
             }
           }
+        },
+        "fleetManagement": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "enabled": {
+              "description": "Specifies whether to enable remote fleet management.",
+              "type": "boolean"
+            },
+            "agentType": {
+              "description": "Specifies the type of agent that is understood by the fleet manager.",
+              "type": "string"
+            },
+            "integrationID": {
+              "description": "Optional specified the ID of the integration to be used for fleet management.",
+              "type": "string"
+            }
+          }
         }
       }
     },
