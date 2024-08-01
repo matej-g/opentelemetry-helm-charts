@@ -85,6 +85,9 @@ Build config file for daemonset OpenTelemetry Collector
 {{- if .Values.presets.reduceResourceAttributes.enabled }}
 {{- $config = (include "opentelemetry-collector.applyReduceResourceAttributesConfig" (dict "Values" $data "config" $config) | fromYaml) }}
 {{- end }}
+{{- if .Values.presets.fleetManagement.enabled }}
+{{- $config = (include "opentelemetry-collector.applyFleetManagementConfig" (dict "Values" $data "config" $config) | fromYaml) }}
+{{- end }}
 {{- $config = (include "opentelemetry-collector.applyBatchProcessorAsLast" (dict "Values" $data "config" $config) | fromYaml) }}
 {{- tpl (toYaml $config) . }}
 {{- end }}
@@ -143,6 +146,9 @@ Build config file for deployment OpenTelemetry Collector
 {{- end }}
 {{- if .Values.presets.reduceResourceAttributes.enabled }}
 {{- $config = (include "opentelemetry-collector.applyReduceResourceAttributesConfig" (dict "Values" $data "config" $config) | fromYaml) }}
+{{- end }}
+{{- if .Values.presets.fleetManagement.enabled }}
+{{- $config = (include "opentelemetry-collector.applyFleetManagementConfig" (dict "Values" $data "config" $config) | fromYaml) }}
 {{- end }}
 {{- $config = (include "opentelemetry-collector.applyBatchProcessorAsLast" (dict "Values" $data "config" $config) | fromYaml) }}
 {{- tpl (toYaml $config) . }}
@@ -659,6 +665,14 @@ processors:
 {{- $config := mustMergeOverwrite (include "opentelemetry-collector.reduceResourceAttributesConfig" .Values | fromYaml) .config }}
 {{- if and ($config.service.pipelines.metrics) (not (has "transform/reduce" $config.service.pipelines.metrics.processors)) }}
 {{- $_ := set $config.service.pipelines.metrics "processors" (append $config.service.pipelines.metrics.processors "transform/reduce" | uniq)  }}
+{{- end }}
+{{- $config | toYaml }}
+{{- end }}
+
+{{- define "opentelemetry-collector.applyFleetManagementConfig" -}}
+{{- $config := mustMergeOverwrite (include "opentelemetry-collector.fleetManagementConfig" .Values | fromYaml) .config }}
+{{- if and ($config.service.extensions) (not (has "opamp" $config.service.extensions)) }}
+{{- $_ := set $config.service "extensions" (append $config.service.extensions "opamp" | uniq)  }}
 {{- end }}
 {{- $config | toYaml }}
 {{- end }}
