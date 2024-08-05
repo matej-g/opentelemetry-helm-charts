@@ -560,6 +560,10 @@
               "description": "Specifies the type of agent that is understood by the fleet manager.",
               "type": "string"
             },
+            "clusterName": {
+              "description": "Specifies the name of the cluster.",
+              "type": "string"
+            },
             "integrationID": {
               "description": "Optional specified the ID of the integration to be used for fleet management.",
               "type": "string"

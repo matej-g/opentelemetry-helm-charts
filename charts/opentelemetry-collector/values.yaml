@@ -216,6 +216,7 @@ presets:
   fleetManagement:
     enabled: false
     agentType: ""
+    clusterName: ""
     integrationID: ""
 
   # Configures the collector to collect MySQL metrics .
